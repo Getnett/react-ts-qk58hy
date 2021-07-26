@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { undoInputFieldValue } from './redux/actions';
 
 export default function Undo() {
   const dispatch = useDispatch();
   const handleUndo = useCallback(() => {
-    const action: SetTextFieldValue = {
+    const action: undoInputFieldValue = {
       type: 'UNDO_INPUT'
     };
     dispatch(action);
