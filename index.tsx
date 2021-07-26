@@ -4,10 +4,14 @@ import { Provider } from 'react-redux';
 import App from './App';
 
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './redux/reducers'
+import rootReducer from './redux/reducers';
 
-export const store = createStore(
-  rootReducer
+export const store = createStore(rootReducer);
+
+render(
+  <Provider store={store}>
+    <App store={store.getState()} />
+  </Provider>,
+  document.getElementById('root')
 );
 
-render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
